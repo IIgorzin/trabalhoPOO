@@ -1,0 +1,8 @@
+vowels = "AEIOUaeiou"
+while True: 
+  text = input(write a letter or word(type 0 to end): ")
+  if text == "0":
+    break
+  for letter in text:
+    if leter in vowels:
+      print(f"{letter} is a vowel")
