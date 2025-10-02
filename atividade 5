@@ -1,0 +1,26 @@
+def atividade5():
+    #variaveis para pegar os numeros de votos
+    cand = 2 
+    total_voters = int(input("how many voters are there in the city?: "))
+    votes_cand1 = int(input("how many people voted for candidate 1?: "))
+    votes_cand2 = int(input("how many people voted for candidate 2?: "))
+    null_votes = int(input("how many people voted null?: "))
+    total_votes = votes_cand1 + votes_cand2 + null_votes
+    blank_votes = total_voters - total_votes
+    #calculando o percentual de cada opçao
+    percent_cand1 = (votes_cand1 / total_voters) * 100
+    percent_cand2 = (votes_cand2 / total_voters) * 100
+    percent_null  = (null_votes / total_voters) * 100
+    percent_blank = (blank_votes / total_voters) * 100
+    #exibindo o percentual
+    print(f"Percentage for candidate 1: {percent_cand1:.2f}%")
+    print(f"Percentage for candidate 2: {percent_cand2:.2f}%")
+    print(f"Percentage of null votes: {percent_null:.2f}%")
+    print(f"Percentage of blank votes: {percent_blank:.2f}%")
+    #validando resultado da eleiçao
+    if votes_cand1 > votes_cand2: 
+        print("candidate 1 won the elections! congratulations!!")
+    elif votes_cand2 > votes_cand1:
+        print("candidate 2 won the elections! congratulations!!")
+    elif votes_cand1 == votes_cand2: #empate
+        print("there was a tie between Candidate 1 and Candidate 2. the election goes to a runoff!")
