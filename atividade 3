@@ -1,0 +1,12 @@
+def atividade3():
+    #cria um loop para digitar 
+    while True:
+        num = input("enter a four-digit number: ")
+        if len(num) == 4 and num.isdigit(): #varre o numero, verifica se tem 4 caracteres e se são numeros
+            print("thousands:",num[0])
+            print("hundreds:",num[1]) 
+            print("tens:",num[2]) 
+            print("units:",num[3])
+            break  #quebra o loop
+        else: #caso digite numero com menos de 4 digitos ou mais
+            print("please enter a four-digit number")
