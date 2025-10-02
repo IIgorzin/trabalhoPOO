@@ -1,0 +1,29 @@
+def atividade4():
+    #defino as variaveis
+    count = 0
+    total_sum = 0
+    max_num = None
+    min_num = None
+    #loop para entrar com os numeros
+    while True:
+        userNum = float(input("write the number(s) (zero or negative to end): "))
+        #desligamento do loop
+        if userNum <= 0:
+            break
+        #atualizando quantidade e soma     
+        count += 1
+        total_sum += userNum
+        #atualizando qual menor e qual maior numero
+        if max_num is None or userNum > max_num:
+            max_num = userNum
+        if min_num is None or userNum < min_num:
+            min_num = userNum
+    #aparecendo resultado pós loop
+    if count > 0:
+        print("quantity:",count)
+        print("max:",max_num)
+        print("min:", min_num)
+        print("sum:", total_sum)
+        print("average:", total_sum / count)
+    else:
+        print("no valid numbers entered.")
