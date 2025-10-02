@@ -1,0 +1,17 @@
+def atividade1():
+     a = float(input("Write the first number: ")) #declarando lado A 
+     b = float(input("Write the second number: ")) #declarando lado B
+     c = float(input("Write the third number: ")) #declarando lado C
+    #verificando se pode formar um triangulo
+     if (a < b + c) and (b < a + c) and (c < b + a): 
+        print("the numbers can form a triangle:)")
+    #verificando o tipo de triangulo    
+        if a == b == c:
+            print("type of triangle: equilateral.") 
+        elif a == b or a == c or b == c:
+            print("type of triangle: isosceles.") 
+        else:
+            print("type of triangle: scalene.")
+    #mensagem caso nao seja possivel formar um triangulo
+     else:
+        print("the number can't form a triangle.") 
