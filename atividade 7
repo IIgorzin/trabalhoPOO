@@ -1,0 +1,41 @@
+def atividade7():
+    #definindo o vetor
+    vector = [random.randint(1,100) for _ in range(20)]
+    #loop menu
+    while True:
+        print("\nMENU")
+        print("1 - enter a number")
+        print("2 - show only even numbers")
+        print("3 - show only odd numbers")
+        print("4 - show only numbers at even positions in the vector")
+        print("5 - show only numbers at odd positions in the vector")
+        print("9 - exit")
+        #escolha de opcao
+        option = int(input("choose an option: "))
+        #var das opcoes
+        if option == 9:
+            print("program finished")
+            break
+        elif option == 1: #escolhendo posicao do vetor e qual numero ocupara 
+            pos = int(input("enter the position (0 to 19): "))
+            num = int(input("enter the number: "))
+            if 0 <= pos < 20:
+                vector[pos] = num
+            else:
+                print("invalid position")
+        elif option == 2: #selecionar numeros pares e mostrar
+            evens = [x for x in vector if x % 2 == 0]
+            print("even numbers:", evens)
+        elif option == 3: #selecionar numeros impares e mostrar
+            odds = [x for x in vector if x % 2 != 0]
+            print("odd numbers:", odds)
+        elif option == 4: #selecionar numeros das posicoes pares e mostrar
+            even_positions = [vector[i] for i in range(0,20,2)]
+            print("numbers at even positions:", even_positions)
+        elif option == 5: #selecionar numero das posicoes impares e mostrar
+            odd_positions = [vector[i] for i in range(1,20,2)]
+            print("numbers at odd positions:", odd_positions)
+        else: 
+            print("invalid option")
+        #resultado
+        print("complete vector:", vector)
