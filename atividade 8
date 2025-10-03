@@ -1,0 +1,13 @@
+def atividade8():
+    #loop para escolher numero
+    while True:
+        n = int(input("write a positive integer (max 10): "))
+        #fica em loop enquanto selecionar numero maior que 10
+        if n <= 10 and n > 0:
+            break 
+        print("invalid number, please enter a number between 1 and 10")
+    #formando o quadro de numeros
+    for i in range(1, n + 1):
+            for j in range(i, i + n):
+                print(j, end="")
+            print() 
