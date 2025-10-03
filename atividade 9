@@ -1,0 +1,19 @@
+def atividadade9():
+    #loop para escrever uma palavra
+    while True:
+        word = input("write a word: ").upper()
+        if word.isalpha():
+            break
+        else:
+            print("invalid input. please type only letters!")
+    flag = True #define a palavra como palindromo 
+    #le a palavra 
+    for i in range(len(word) // 2):
+        if word[i] != word[-(i + 1)]:#compara a letra do inicio com a do fim
+            flag = False
+            break #ja quebra se tiver diferenca 
+    #resultado
+    if flag:
+        print("the word is a palindrome!")
+    else:
+        print("the word is not a palindrome.")
