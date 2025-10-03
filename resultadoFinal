@@ -1,0 +1,282 @@
+ import random #para ser usado na atividade 7
+
+def atividade1():
+     a = float(input("Write the first number: ")) #declarando lado A 
+     b = float(input("Write the second number: ")) #declarando lado B
+     c = float(input("Write the third number: ")) #declarando lado C
+    #verificando se pode formar um triangulo
+     if (a < b + c) and (b < a + c) and (c < b + a): 
+        print("the numbers can form a triangle:)")
+    #verificando o tipo de triangulo    
+        if a == b == c:
+            print("type of triangle: equilateral.") 
+        elif a == b or a == c or b == c:
+            print("type of triangle: isosceles.") 
+        else:
+            print("type of triangle: scalene.")
+    #mensagem caso nao seja possivel formar um triangulo
+     else:
+        print("the number can't form a triangle.") 
+
+def atividade2():
+    #declarando as variaveis 
+    n = int(input("Write the number: "))
+    total_sum = 0
+    even_sum = 0
+    odd_sum = 0
+    #mostrando os numeros entre 0 e n, e somando os pares e os impares
+    for i in range(n+1):
+        print(i)
+        total_sum += i
+        if i % 2 == 0:
+            even_sum += i
+        else: 
+            odd_sum += i
+    #mostrando a conta de cada soma    
+    print("total sum: ",total_sum)
+    print("even sum: ", even_sum)
+    print("odd sum: ",odd_sum)
+
+def atividade3():
+    #cria um loop para digitar 
+    while True:
+        num = input("enter a four-digit number: ")
+        if len(num) == 4 and num.isdigit(): #varre o numero, verifica se tem 4 caracteres e se são numeros
+            print("thousands:",num[0])
+            print("hundreds:",num[1]) 
+            print("tens:",num[2]) 
+            print("units:",num[3])
+            break  #quebra o loop
+        else: #caso digite numero com menos de 4 digitos ou mais
+            print("please enter a four-digit number")
+
+def atividade4():
+    #defino as variaveis
+    count = 0
+    total_sum = 0
+    max_num = None
+    min_num = None
+    #loop para entrar com os numeros
+    while True:
+        userNum = float(input("write the number(s) (zero or negative to end): "))
+        #desligamento do loop
+        if userNum <= 0:
+            break
+        #atualizando quantidade e soma     
+        count += 1
+        total_sum += userNum
+        #atualizando qual menor e qual maior numero
+        if max_num is None or userNum > max_num:
+            max_num = userNum
+        if min_num is None or userNum < min_num:
+            min_num = userNum
+    #aparecendo resultado pós loop
+    if count > 0:
+        print("quantity:",count)
+        print("max:",max_num)
+        print("min:", min_num)
+        print("sum:", total_sum)
+        print("average:", total_sum / count)
+    else:
+        print("no valid numbers entered.")
+
+def atividade5():
+    #variaveis para pegar os numeros de votos
+    cand = 2 
+    total_voters = int(input("how many voters are there in the city?: "))
+    votes_cand1 = int(input("how many people voted for candidate 1?: "))
+    votes_cand2 = int(input("how many people voted for candidate 2?: "))
+    null_votes = int(input("how many people voted null?: "))
+    total_votes = votes_cand1 + votes_cand2 + null_votes
+    blank_votes = total_voters - total_votes
+    #calculando o percentual de cada opçao
+    percent_cand1 = (votes_cand1 / total_voters) * 100
+    percent_cand2 = (votes_cand2 / total_voters) * 100
+    percent_null  = (null_votes / total_voters) * 100
+    percent_blank = (blank_votes / total_voters) * 100
+    #exibindo o percentual
+    print(f"Percentage for candidate 1: {percent_cand1:.2f}%")
+    print(f"Percentage for candidate 2: {percent_cand2:.2f}%")
+    print(f"Percentage of null votes: {percent_null:.2f}%")
+    print(f"Percentage of blank votes: {percent_blank:.2f}%")
+    #validando resultado da eleiçao
+    if votes_cand1 > votes_cand2: 
+        print("candidate 1 won the elections! congratulations!!")
+    elif votes_cand2 > votes_cand1:
+        print("candidate 2 won the elections! congratulations!!")
+    elif votes_cand1 == votes_cand2: #empate
+        print("there was a tie between Candidate 1 and Candidate 2. the election goes to a runoff!")
+
+def atividade6():
+    vowels = "AEIOUaeiou" #definindo as vogais
+    #loop para digitar a palavra ou letra
+    while True: 
+        text = input("write a letter or word(type 0 to end): ")
+        if text == "0":
+            break
+        for letter in text: 
+            if letter in vowels: #puxa as letras do texto e ve se tem vogal
+                print(f"{letter} is a vowel") #resultado
+
+def atividade7():
+    #definindo o vetor
+    vector = [random.randint(1,100) for _ in range(20)]
+    #loop menu
+    while True:
+        print("\nMENU")
+        print("1 - enter a number")
+        print("2 - show only even numbers")
+        print("3 - show only odd numbers")
+        print("4 - show only numbers at even positions in the vector")
+        print("5 - show only numbers at odd positions in the vector")
+        print("9 - exit")
+        #escolha de opcao
+        option = int(input("choose an option: "))
+        #var das opcoes
+        if option == 9:
+            print("program finished")
+            break
+        elif option == 1: #escolhendo posicao do vetor e qual numero ocupara 
+            pos = int(input("enter the position (0 to 19): "))
+            num = int(input("enter the number: "))
+            if 0 <= pos < 20:
+                vector[pos] = num
+            else:
+                print("invalid position")
+        elif option == 2: #selecionar numeros pares e mostrar
+            evens = [x for x in vector if x % 2 == 0]
+            print("even numbers:", evens)
+        elif option == 3: #selecionar numeros impares e mostrar
+            odds = [x for x in vector if x % 2 != 0]
+            print("odd numbers:", odds)
+        elif option == 4: #selecionar numeros das posicoes pares e mostrar
+            even_positions = [vector[i] for i in range(0,20,2)]
+            print("numbers at even positions:", even_positions)
+        elif option == 5: #selecionar numero das posicoes impares e mostrar
+            odd_positions = [vector[i] for i in range(1,20,2)]
+            print("numbers at odd positions:", odd_positions)
+        else: 
+            print("invalid option")
+        #resultado
+        print("complete vector:", vector)
+
+def atividade8():
+    #loop para escolher numero
+    while True:
+        n = int(input("write a positive integer (max 10): "))
+        #fica em loop enquanto selecionar numero maior que 10
+        if n <= 10 and n > 0:
+            break 
+        print("invalid number, please enter a number between 1 and 10")
+    #formando o quadro de numeros
+    for i in range(1, n + 1):
+            for j in range(i, i + n):
+                print(j, end="")
+            print() 
+
+def atividadade9():
+    #loop para escrever uma palavra
+    while True:
+        word = input("write a word: ").upper()
+        if word.isalpha():
+            break
+        else:
+            print("invalid input. please type only letters!")
+    flag = True #define a palavra como palindromo 
+    #le a palavra 
+    for i in range(len(word) // 2):
+        if word[i] != word[-(i + 1)]:#compara a letra do inicio com a do fim
+            flag = False
+            break #ja quebra se tiver diferenca 
+    #resultado
+    if flag:
+        print("the word is a palindrome!")
+    else:
+        print("the word is not a palindrome.")
+
+#menu principal
+def menuTrabalho():
+    while True:
+        print("================================")
+        print("======= MENU DO TRABALHO =======")
+        print("============ OPÇÕES ============")
+        print("======= Ver atividade 1 ========")
+        print("======= Ver atividade 2 ========")
+        print("======= Ver atividade 3 ========")
+        print("======= Ver atividade 4 ========")
+        print("======= Ver atividade 5 ========")
+        print("======= Ver atividade 6 ========")
+        print("======= Ver atividade 7 ========")
+        print("======= Ver atividade 8 ========")
+        print("======= Ver atividade 9 ========")
+        print("=========== VOLTAR =============")
+        op = int(input("Escolha qual atividade deseja executar(colocar numero de acordo com atividade, para sair use 0): "))
+        if op == 0:
+            menuVolta()
+        elif op == 1:
+            atividade1()
+            menuPosAtividade()
+        elif op == 2:
+            atividade2()
+            menuPosAtividade()
+        elif op == 3:
+            atividade3()
+            menuPosAtividade()
+        elif op == 4:
+            atividade4()
+            menuPosAtividade()
+        elif op == 5:
+            atividade5()
+            menuPosAtividade()
+        elif op == 6:
+            atividade6()
+            menuPosAtividade()
+        elif op == 7:
+            atividade7()
+            menuPosAtividade()
+        elif op == 8:
+            atividade8()
+            menuPosAtividade()
+        elif op == 9:
+            atividadade9()
+            menuPosAtividade()
+        else:
+            print("\nOpção invalida!\n")
+
+#menu se a escolha no inicio for 0
+def menuVolta():
+    print("\nDeseja realmente sair?:(")
+    resp = input("sim/nao: ")
+    if resp == "sim":
+        exit()
+    elif resp == "nao":
+        menuTrabalho()
+    else:
+        print("\nResposta invalida!")
+        menuVolta()
+
+#menu para saber se quer mais atividades ou sair
+def menuPosAtividade():
+    print("\nDeseja ver mais alguma atividade?")
+    resp = input("sim/nao: ")
+    if resp == "nao":
+        exit()
+    elif resp == "sim":
+        menuTrabalho()
+    else:
+        print("\nResposta invalida!")
+        menuPosAtividade()
+
+#inicio do codigo
+print("               dev by Igor :)                 ")
+print("Olá, seja bem-vindo(a) ao meu trabalho de POO!")
+print("Para encerrar o programa, digite 0.")
+print("Para ir ao menu do trabalho, digite 1.")
+while True:
+    opinit = int(input(""))
+    if opinit == 0:
+        exit()
+    elif opinit == 1:
+        menuTrabalho()
+    else: 
+        print("Resposta invalida!")
