@@ -1,8 +1,10 @@
-vowels = "AEIOUaeiou"
-while True: 
-  text = input(write a letter or word(type 0 to end): ")
-  if text == "0":
-    break
-  for letter in text:
-    if leter in vowels:
-      print(f"{letter} is a vowel")
+def atividade6():
+    vowels = "AEIOUaeiou" #definindo as vogais
+    #loop para digitar a palavra ou letra
+    while True: 
+        text = input("write a letter or word(type 0 to end): ")
+        if text == "0":
+            break
+        for letter in text: 
+            if letter in vowels: #puxa as letras do texto e ve se tem vogal
+                print(f"{letter} is a vowel") #resultado
