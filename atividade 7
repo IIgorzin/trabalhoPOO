@@ -1,3 +1,4 @@
+import random
 def atividade7():
     #definindo o vetor
     vector = [random.randint(1,100) for _ in range(20)]
